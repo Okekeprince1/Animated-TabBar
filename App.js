@@ -1,21 +1,50 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { FontAwesome5 } from '@expo/vector-icons'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import  * as AllScreens  from './screens';
+import AddButton from './components/AddButton';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const TabNavigator = createBottomTabNavigator(
+    {
+        Journal: {
+            screen: AllScreens.JournalScreen,
+            navigationOptions: {
+                tabBarIcon: () => <FontAwesome5 name="book-medical" size={24} color='#CDCCCE'/>
+            }
+        },
+        Measures: {
+            screen: AllScreens.MeasuresScreen,
+            navigationOptions: {
+                tabBarIcon: () => <FontAwesome5 name="heartbeat" size={24} color='#CDCCCE'/>
+            }
+        },
+        Add: {
+            screen: () => null,
+            navigationOptions: {
+                tabBarIcon: <AddButton/>
+            }
+        },
+        Treatment: {
+            screen: AllScreens.TreatmentScreen,
+            navigationOptions: {
+                tabBarIcon: () => <FontAwesome5 name="band-aid" size={24} color='#CDCCCE'/>
+            }
+        },
+        Profile: {
+            screen: AllScreens.ProfileScreen,
+            navigationOptions: {
+                tabBarIcon: () => <FontAwesome5 name="user" size={24} color='#CDCCCE'/>
+            }
+        },
+    },
+    {
+        tabBarOptions: {
+            showLabel: false
+        }
+    }
+)
+
+export default createAppContainer(TabNavigator)
