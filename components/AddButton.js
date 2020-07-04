@@ -38,7 +38,13 @@ export default class AddButton extends Component {
 
         return (
             <View style={{ position: "absolute", alignItems: "center" }}>
-
+                <Animated.View style={{position: "absolute"}}>
+                    <View>
+                        <View style={styles.secondaryButton}>
+                            <Feather name="thermometer" size={24} color="#FFF"/>
+                        </View>
+                    </View>
+                </Animated.View>
                 <Animated.View style={[styles.button, sizeStyle]}>
                     <TouchableHighlight underlayColor="#47F58FF"
                      onPress={this.handlePress}>
