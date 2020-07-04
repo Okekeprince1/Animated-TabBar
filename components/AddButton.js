@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TouchableHighlight, Animated } from 'react-native';
+import { View, StyleSheet, SafeAreaView, TouchableHighlight, Animated } from 'react-native';
 import { FontAwesome5, Feather } from '@expo/vector-icons';
 
 export default class AddButton extends Component {
@@ -36,14 +36,15 @@ export default class AddButton extends Component {
             outputRange :["0deg", "45deg"]
         })
 
-        const thermometer = this.mode.interpolate({
+        const thermometerX = this.mode.interpolate({
             inputRange: [0, 1],
             outputRange :[-24, -100]
         })
 
         return (
             <View style={{ position: "absolute", alignItems: "center" }}>
-                <Animated.View style={{position: "absolute"}}>
+                <SafeAreaView/>
+                <Animated.View style={{position: "absolute", left: thermometerX}}>
                     <View>
                         <View style={styles.secondaryButton}>
                             <Feather name="thermometer" size={24} color="#FFF"/>
