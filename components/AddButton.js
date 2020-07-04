@@ -40,7 +40,8 @@ export default class AddButton extends Component {
             <View style={{ position: "absolute", alignItems: "center" }}>
 
                 <Animated.View style={[styles.button, sizeStyle]}>
-                    <TouchableHighlight underlayColor="#47F58FF" onPress={this.handlePress}>
+                    <TouchableHighlight underlayColor="#47F58FF"
+                     onPress={this.handlePress}>
                         <Animated.View style={{ transform: [{ rotate: rotation }]}}>
                             <FontAwesome5 name="plus" size={24} color="#FFF" />
                         </Animated.View>
