@@ -36,6 +36,11 @@ export default class AddButton extends Component {
             outputRange :["0deg", "45deg"]
         })
 
+        const thermometer = this.mode.interpolate({
+            inputRange: [0, 1],
+            outputRange :[-24, -100]
+        })
+
         return (
             <View style={{ position: "absolute", alignItems: "center" }}>
                 <Animated.View style={{position: "absolute"}}>
@@ -75,6 +80,14 @@ const styles = StyleSheet.create(
             shadowOpacity: 0.3,
             borderWidth: 3,
             borderColor: "#FFF"
+        },
+        secondaryButton: {
+            position: "absolute", 
+            alignItems: "center",
+            justifyContent: "center",
+            width: 48,
+            height: 48,
+            borderRadius: 24,
+            backgroundColor: "#7F58FF"
         }
-    }
-)
+})
