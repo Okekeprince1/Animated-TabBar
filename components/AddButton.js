@@ -44,7 +44,17 @@ export default class AddButton extends Component {
 
         const thermometerY = this.mode.interpolate({
             inputRange: [0, 1],
-            outputRange :[-24, -100]
+            outputRange :[-37, -100]
+        })
+
+        const timeX = this.mode.interpolate({
+            inputRange: [0, 1],
+            outputRange :[-24, 50]
+        })
+
+        const timeY = this.mode.interpolate({
+            inputRange: [0, 1],
+            outputRange :[-37, -100]
         })
 
         return (
@@ -57,6 +67,23 @@ export default class AddButton extends Component {
                         </View>
                     </View>
                 </Animated.View>
+
+                <Animated.View style={{position: "absolute", left: timeX, top: timeY }}>
+                    <View>
+                        <View style={styles.secondaryButton}>
+                            <Feather name="clock" size={24} color="#FFF"/>
+                        </View>
+                    </View>
+                </Animated.View>
+        
+                <Animated.View style={{position: "absolute", left: thermometerX, top: thermometerY }}>
+                    <View>
+                        <View style={styles.secondaryButton}>
+                            <Feather name="thermometer" size={24} color="#FFF"/>
+                        </View>
+                    </View>
+                </Animated.View>
+
                 <Animated.View style={[styles.button, sizeStyle]}>
                     <TouchableHighlight underlayColor="#47F58FF"
                      onPress={this.handlePress}>
