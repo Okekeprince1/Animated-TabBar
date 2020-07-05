@@ -41,10 +41,15 @@ export default class AddButton extends Component {
             outputRange :[-24, -100]
         })
 
+        const thermometerY = this.mode.interpolate({
+            inputRange: [0, 1],
+            outputRange :[-24, -100]
+        })
+
         return (
             <View style={{ position: "absolute", alignItems: "center" }}>
                 <SafeAreaView/>
-                <Animated.View style={{position: "absolute", left: thermometerX}}>
+                <Animated.View style={{position: "absolute", left: thermometerX, top: thermometerY }}>
                     <View>
                         <View style={styles.secondaryButton}>
                             <Feather name="thermometer" size={24} color="#FFF"/>
