@@ -57,6 +57,16 @@ export default class AddButton extends Component {
             outputRange :[-37, -150]
         })
 
+        const pulseX = this.mode.interpolate({
+            inputRange: [0, 1],
+            outputRange :[-24, 50]
+        })
+
+        const pulseY = this.mode.interpolate({
+            inputRange: [0, 1],
+            outputRange :[-37, -100]
+        })
+
         return (
             <View style={{ position: "absolute", alignItems: "center" }}>
                 <SafeAreaView/>
@@ -76,7 +86,7 @@ export default class AddButton extends Component {
                     </View>
                 </Animated.View>
         
-                <Animated.View style={{position: "absolute", left: thermometerX, top: thermometerY }}>
+                <Animated.View style={{position: "absolute", left: pulseX, top: pulseY }}>
                     <View>
                         <View style={styles.secondaryButton}>
                             <Feather name="thermometer" size={24} color="#FFF"/>
