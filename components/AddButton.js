@@ -19,7 +19,8 @@ export default class AddButton extends Component {
                 useNativeDriver: true
             }),
             Animated.timing(this.mode, {
-                toValue: this.mode  === 0 ? 1 : 0,
+                toValue: this.mode._value  === 0 ? 1 : 0,
+                duration: 500,
                 useNativeDriver: false
             })
         ]).start()
