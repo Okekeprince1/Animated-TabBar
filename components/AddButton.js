@@ -49,12 +49,12 @@ export default class AddButton extends Component {
 
         const timeX = this.mode.interpolate({
             inputRange: [0, 1],
-            outputRange :[-24, 50]
+            outputRange :[-24, -24]
         })
 
         const timeY = this.mode.interpolate({
             inputRange: [0, 1],
-            outputRange :[-37, -100]
+            outputRange :[-37, -150]
         })
 
         return (
