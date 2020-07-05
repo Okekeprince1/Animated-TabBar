@@ -19,7 +19,7 @@ export default class AddButton extends Component {
                 useNativeDriver: true
             }),
             Animated.timing(this.mode, {
-                toValue: this.mode._value  === 0 ? 1 : 0,
+                toValue: this.mode._value === 0 ? 1 : 0,
                 duration: 500,
                 useNativeDriver: false
             })
@@ -29,75 +29,76 @@ export default class AddButton extends Component {
     render() {
 
         const sizeStyle = {
-            transform: [{ scale: this.buttonSize}]
+            transform: [{ scale: this.buttonSize }]
         }
 
         const rotation = this.mode.interpolate({
             inputRange: [0, 1],
-            outputRange :["0deg", "45deg"]
+            outputRange: ["0deg", "45deg"]
         })
 
         const thermometerX = this.mode.interpolate({
             inputRange: [0, 1],
-            outputRange :[-24, -100]
+            outputRange: [-24, -100]
         })
 
         const thermometerY = this.mode.interpolate({
             inputRange: [0, 1],
-            outputRange :[-37, -100]
+            outputRange: [-37, -100]
         })
 
         const timeX = this.mode.interpolate({
             inputRange: [0, 1],
-            outputRange :[-24, -24]
+            outputRange: [-24, -24]
         })
 
         const timeY = this.mode.interpolate({
             inputRange: [0, 1],
-            outputRange :[-37, -150]
+            outputRange: [-37, -150]
         })
 
         const pulseX = this.mode.interpolate({
             inputRange: [0, 1],
-            outputRange :[-24, 50]
+            outputRange: [-24, 50]
         })
 
         const pulseY = this.mode.interpolate({
             inputRange: [0, 1],
-            outputRange :[-37, -100]
+            outputRange: [-37, -100]
         })
 
         return (
             <View style={{ position: "absolute", alignItems: "center" }}>
-                <SafeAreaView/>
-                <Animated.View style={{position: "absolute", left: thermometerX, top: thermometerY }}>
+                <SafeAreaView />
+                <Animated.View style={{ position: "absolute", left: thermometerX, top: thermometerY }}>
                     <View>
                         <View style={styles.secondaryButton}>
-                            <Feather name="thermometer" size={24} color="#FFF"/>
+                            <Feather name="thermometer" size={24} color="#FFF" />
                         </View>
                     </View>
                 </Animated.View>
 
-                <Animated.View style={{position: "absolute", left: timeX, top: timeY }}>
+                <Animated.View style={{ position: "absolute", left: timeX, top: timeY }}>
                     <View>
                         <View style={styles.secondaryButton}>
-                            <Feather name="clock" size={24} color="#FFF"/>
+                            <Feather name="clock" size={24} color="#FFF" />
                         </View>
                     </View>
                 </Animated.View>
-        
-                <Animated.View style={{position: "absolute", left: pulseX, top: pulseY }}>
+
+                <Animated.View style={{ position: "absolute", left: pulseX, top: pulseY }}>
                     <View>
                         <View style={styles.secondaryButton}>
-                            <Feather name="thermometer" size={24} color="#FFF"/>
+                            <Feather name="thermometer" size={24} color="#FFF" />
                         </View>
                     </View>
                 </Animated.View>
 
                 <Animated.View style={[styles.button, sizeStyle]}>
                     <TouchableHighlight underlayColor="#47F58FF"
-                     onPress={this.handlePress}>
-                        <Animated.View style={{ transform: [{ rotate: rotation }]}}>
+                        style={styles.mainButton}
+                        onPress={this.handlePress}>
+                        <Animated.View style={{ transform: [{ rotate: rotation }] }}>
                             <FontAwesome5 name="plus" size={24} color="#FFF" />
                         </Animated.View>
                     </TouchableHighlight>
@@ -109,6 +110,13 @@ export default class AddButton extends Component {
 
 const styles = StyleSheet.create(
     {
+        mainButton: {
+            width: 72,
+            height: 72,
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: 36,
+        },
         button: {
             backgroundColor: '#7F58FF',
             alignItems: "center",
@@ -126,7 +134,7 @@ const styles = StyleSheet.create(
             borderColor: "#FFF"
         },
         secondaryButton: {
-            position: "absolute", 
+            position: "absolute",
             alignItems: "center",
             justifyContent: "center",
             width: 48,
@@ -134,4 +142,4 @@ const styles = StyleSheet.create(
             borderRadius: 24,
             backgroundColor: "#7F58FF"
         }
-})
+    })
